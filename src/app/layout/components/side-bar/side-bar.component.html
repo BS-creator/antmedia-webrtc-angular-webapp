@@ -1,0 +1,14 @@
+  <div class="logo" title="Open Menu">
+    <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;{{MenuText}}{{Up()}}</span>
+  </div>
+  <div class="sidenav" id="mySidenav" name="mySidenav" [ngClass]="{'sidebar-open':sideBarOpen,'sidebar-close':!sideBarOpen}">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <ul class="nav">
+      <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+        <a [routerLink]="[menuItem.path]">
+          <i class="now-ui-icons {{menuItem.icon}}"></i>
+          <p>{{menuItem.title}}</p>
+        </a>
+      </li>
+    </ul>
+  </div>

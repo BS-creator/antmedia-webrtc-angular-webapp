@@ -1,0 +1,7 @@
+{
+  "apiUrl": "https://localhost:44333",
+  "serverUrl": "https://lightingpartners.co",
+  "serverUrl1": "http://ec2-13-127-168-118.ap-south-1.compute.amazonaws.com",
+  "streamId": "stream_eduscope",
+  "token": ""
+}

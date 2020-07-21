@@ -1,0 +1,47 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-fussion">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="row centered edu-login-card">
+  <div class="col-md-12 edu-login-body">
+    <img class="edu-logo" src="assets/img/eduscope_logo.png" />
+    <br /><label class="edu-input-element-label-title">Login</label>
+    <br /><small class="edu-input-element-label-small">Please enter your email address and password to get started</small>
+    
+    <form class='login-form' name="form" (ngSubmit)="frm.form.valid && Login()" #frm="ngForm" novalidate>
+      <div class="row" style="margin-top: 4%;">
+        <div class="col-md-12 form-group">
+          <label for="title" class="edu-input-element-label">Email address</label>
+          <div class="input-group">
+            <input type="text" class="form-control edu-input-elment" placeholder="Enter email address..." [(ngModel)]="login.email" name="email" required #email="ngModel">
+          </div>
+          <div *ngIf="frm.submitted && email.invalid">
+            <small *ngIf="email.errors.required" class="form-text invalid-msg"><i class="fa fa-info-circle"></i> Email is required .</small>
+          </div>
+        </div>
+        <div class="col-md-12 form-group">
+          <label for="title" class="edu-input-element-label">Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control edu-input-elment" placeholder="Enter password..." [(ngModel)]="login.password" name="password" required #password="ngModel">
+          </div>
+          <div *ngIf="frm.submitted && password.invalid">
+            <small *ngIf="password.errors.required" class="form-text invalid-msg"><i class="fa fa-info-circle"></i> Password is required .</small>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:2%;">
+        <div class="col-md-12">
+          <small class="edu-input-element-label-small">Forgot Password?</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="edu-btn-login"><span class="edu-button-avatar-text">Login</span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

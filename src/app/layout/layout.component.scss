@@ -1,0 +1,15 @@
+/*.contain{
+    margin-left:2rem;
+    margin-right:2rem;
+}*/
+
+.sidebar {
+  z-index: 99999 !important;
+  position: fixed;
+  margin-left: .3%;
+}
+
+#main {
+  transition: margin-left .5s;
+  margin-left: 5%;
+}
