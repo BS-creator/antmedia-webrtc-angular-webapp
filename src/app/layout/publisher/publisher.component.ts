@@ -42,8 +42,8 @@ export class PublisherComponent implements OnInit {
   // for record end
 
   currentYear: Date;
-  joinMeeting: boolean = true;
-  joinMeetingBtnText: string = "leave" || "ready to record";
+  joinMeeting: boolean = false;
+  joinMeetingBtnText: string = "ready to record";
   recordingStatus: string = "init"; // init | recording | paused | stopped
   //If publishing stops for any reason, it tries to republish again.
   autoRepublishEnabled: boolean = true;
@@ -82,6 +82,7 @@ export class PublisherComponent implements OnInit {
     this.currentYear = new Date();
 
     this.streamConfig = new StreamConfig();
+    this.streamConfig.title = "while developing";
     this.streamConfig.microphone = "-1";
     this.streamConfig.modulecode = "-1";
     this.streamConfig.camera = "-1";
@@ -102,15 +103,17 @@ export class PublisherComponent implements OnInit {
 
     // this.websocketURL = "wss://lightingpartners.co:5443/WebRTCApp/websocket?rtmpForward=" + this.rtmpForward;
     if (this._AppConfig.serverUrl) {
-      this.websocketURL = this._AppConfig.serverUrl.startsWith("https")
-        ? "wss://"
-        : "ws://";
-      this.websocketURL =
-        this.websocketURL +
-        this._AppConfig.serverUrl.split("://")[1] +
-        ":5443" +
-        "/WebRTCApp/websocket?rtmpForward=" +
-        this.rtmpForward;
+      this.websocketURL = "http://95.217.236.241:5080/WebRTCAppEE/websocket";
+
+      // this.websocketURL = this._AppConfig.serverUrl.startsWith("https")
+      //   ? "wss://"
+      //   : "ws://";
+      // this.websocketURL =
+      //   this.websocketURL +
+      //   this._AppConfig.serverUrl.split("://")[1] +
+      //   ":5443" +
+      //   "/WebRTCApp/websocket?rtmpForward=" +
+      //   this.rtmpForward;
     }
 
     this.microphoneDevices = new Array<OptionSet>();
@@ -130,7 +133,7 @@ export class PublisherComponent implements OnInit {
 
     this._AppConfig.streamId = this.streamConfig.title.replace(" ", "");
 
-    return;
+    // return;
 
     if (this.joinMeeting) {
       this.initWebRTCAdaptor(
